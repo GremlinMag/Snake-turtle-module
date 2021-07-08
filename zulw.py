@@ -1,23 +1,30 @@
 import turtle
+import random
 
 class Snake(turtle.Turtle):
-    pozycja_x = 10
-    pozycja_y = 10
+    def init(self):
+        self.shape('square')
+        self.penup()
+        self.turtlesize(1, 1)
+    pozycja_x = 0
+    pozycja_y = 0
     speed_x = 0
-    speed_y = 10
+    speed_y = 21
+    dlugosc = 3
+
     def gora(self):
         self.speed_x = 0
-        self.speed_y = 10
+        self.speed_y = 21
     def dol(self):
         self.speed_x = 0
-        self.speed_y = -10
+        self.speed_y = -21
 
     def lewo(self):
-        self.speed_x = -10
+        self.speed_x = -21
         self.speed_y = 0
 
     def prawo(self):
-        self.speed_x = 10
+        self.speed_x = 21
         self.speed_y = 0
 
     def reset(self):
@@ -28,5 +35,25 @@ class Snake(turtle.Turtle):
     def bye(self):
         turtle.bye()
 
-def lol():
-    print('lol')
+class Food(turtle.Turtle):
+    def init(self):
+        self.shape('circle')
+        self.penup()
+        self.color('red')
+        self.turtlesize(1, 1)
+        self.pozycja_x = random.randrange(-231, 240, 21)
+        self.pozycja_y = random.randrange(-231, 240, 21)
+        self.setpos(self.pozycja_x, self.pozycja_y)
+    def zmien_lokacje(self):
+        turtle.delay(0)
+        self.pozycja_x = random.randrange(-231, 240, 21)
+        self.pozycja_y = random.randrange(-231, 240, 21)
+        self.setpos(self.pozycja_x, self.pozycja_y)
+
+def food_collision():
+    global food_pos
+    if get_distance(snake[-1], food_pos) < 20:
+        food_pos = get_random_food_pos()
+        food.goto(food_pos)
+        return True
+    return False
