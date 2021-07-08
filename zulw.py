@@ -50,10 +50,9 @@ class Food(turtle.Turtle):
         self.pozycja_y = random.randrange(-231, 240, 21)
         self.setpos(self.pozycja_x, self.pozycja_y)
 
-def food_collision():
-    global food_pos
-    if get_distance(snake[-1], food_pos) < 20:
-        food_pos = get_random_food_pos()
-        food.goto(food_pos)
-        return True
-    return False
+class Segment(turtle.Turtle):
+    def init(self):
+        self.shape('square')
+        self.penup()
+        self.color('grey')
+        self.turtlesize(1, 1)
