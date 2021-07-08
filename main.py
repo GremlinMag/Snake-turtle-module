@@ -12,9 +12,10 @@ if __name__ == '__main__':
     Y = zulw.Food()
     Y.init()
 
-
+    move = 1
     delay=0.1
-    while True:
+    X=0
+    while X == 0:
         turtle.onkey(Z.gora, 'Up')
         turtle.onkey(Z.lewo, 'Left')
         turtle.onkey(Z.prawo, 'Right')
@@ -30,12 +31,18 @@ if __name__ == '__main__':
             x = Z.xcor()
             y = Z.ycor()
             segments[0].goto(x, y)
-        Z.reset()
+
         if Z.distance(Y) < 15:
             Y.zmien_lokacje()
             C = zulw.Segment()
             C.init()
             segments.append(C)
-
+        for seg in segments[1:]:
+            if Z.distance(seg) < 1:
+                X=1
+        if move == 1:
+            Z.reset()
         turtle.listen()
         time.sleep(delay)
+
+    turtle.exitonclick()

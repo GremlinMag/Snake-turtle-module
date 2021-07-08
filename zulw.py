@@ -11,21 +11,31 @@ class Snake(turtle.Turtle):
     speed_x = 0
     speed_y = 21
     dlugosc = 3
+    kierunek = 'u'
 
     def gora(self):
-        self.speed_x = 0
-        self.speed_y = 21
+        if self.kierunek != 'd':
+            self.speed_x = 0
+            self.speed_y = 21
+            self.kierunek = 'u'
+
     def dol(self):
-        self.speed_x = 0
-        self.speed_y = -21
+        if self.kierunek != 'u':
+            self.speed_x = 0
+            self.speed_y = -21
+            self.kierunek = 'd'
 
     def lewo(self):
-        self.speed_x = -21
-        self.speed_y = 0
+        if self.kierunek != 'r':
+            self.speed_x = -21
+            self.speed_y = 0
+            self.kierunek = 'l'
 
     def prawo(self):
-        self.speed_x = 21
-        self.speed_y = 0
+        if self.kierunek != 'l':
+            self.speed_x = 21
+            self.speed_y = 0
+            self.kierunek = 'r'
 
     def reset(self):
         self.pozycja_x = self.pozycja_x + self.speed_x
