@@ -66,3 +66,4 @@ class Segment(turtle.Turtle):
         self.penup()
         self.color('grey')
         self.turtlesize(1, 1)
+        #self.setpos(pozycja_x, pozycja_y)

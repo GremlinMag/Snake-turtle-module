@@ -23,6 +23,12 @@ if __name__ == '__main__':
         turtle.onkey(Z.bye, 'q')
         turtle.onkey(Y.zmien_lokacje, 'z')
 
+        if Z.distance(Y) < 15:
+            Y.zmien_lokacje()
+            C = zulw.Segment()
+            C.init()
+            segments.append(C)
+
         for index in range(len(segments) - 1, 0, -1):
             x = segments[index - 1].xcor()
             y = segments[index - 1].ycor()
@@ -32,13 +38,9 @@ if __name__ == '__main__':
             y = Z.ycor()
             segments[0].goto(x, y)
 
-        if Z.distance(Y) < 15:
-            Y.zmien_lokacje()
-            C = zulw.Segment()
-            C.init()
-            segments.append(C)
+
         for seg in segments[1:]:
-            if Z.distance(seg) < 1:
+            if Z.distance(seg) < 21:
                 X=1
         if move == 1:
             Z.reset()
