@@ -16,12 +16,7 @@ if __name__ == '__main__':
     delay=0.1
     X=0
     while X == 0:
-        turtle.onkey(Z.gora, 'Up')
-        turtle.onkey(Z.lewo, 'Left')
-        turtle.onkey(Z.prawo, 'Right')
-        turtle.onkey(Z.dol, 'Down')
-        turtle.onkey(Z.bye, 'q')
-        turtle.onkey(Y.zmien_lokacje, 'z')
+
 
         if Z.distance(Y) < 15:
             Y.zmien_lokacje()
@@ -44,7 +39,17 @@ if __name__ == '__main__':
                 X=1
         if move == 1:
             Z.reset()
+
+        turtle.onkey(Z.gora, 'Up')
+        turtle.onkey(Z.lewo, 'Left')
+        turtle.onkey(Z.prawo, 'Right')
+        turtle.onkey(Z.dol, 'Down')
+        turtle.onkey(Z.bye, 'q')
+        turtle.onkey(Y.zmien_lokacje, 'z')
+
         turtle.listen()
         time.sleep(delay)
+
+
 
     turtle.exitonclick()
