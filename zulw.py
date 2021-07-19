@@ -6,6 +6,7 @@ class Snake(turtle.Turtle):
         self.shape('square')
         self.penup()
         self.turtlesize(1, 1)
+
     pozycja_x = 0
     pozycja_y = 0
     speed_x = 0
