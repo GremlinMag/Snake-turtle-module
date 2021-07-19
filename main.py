@@ -45,6 +45,7 @@ if __name__ == '__main__':
         for seg in segments[3:]:
             if Z.distance(seg) < 21:
                 X=1
+
         if Z.xcor() < -231:
             Z.pozycja_x=231
         if Z.xcor() > 231:
