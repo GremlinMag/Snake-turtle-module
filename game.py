@@ -19,9 +19,9 @@ if __name__ == '__main__':
     snake = elements.Snake()
     food = elements.Food()
     segments = []
-    delay=0.01
+    delay=0.1
     start_game = 1
-    nuber_of_segments_on_start = 50
+    nuber_of_segments_on_start = 3
 
     # create a certain number of segments
     for _ in range(nuber_of_segments_on_start):
